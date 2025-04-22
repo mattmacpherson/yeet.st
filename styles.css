@@ -171,6 +171,26 @@ header {
     text-align: center;
 }
 
+.mobile-headline {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .headline {
+        display: none;
+    }
+    
+    .mobile-headline {
+        display: block;
+        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        margin: 1rem 0 2rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--text-color);
+        text-align: center;
+    }
+}
+
 /* Projects section */
 .projects {
     display: grid;
@@ -306,6 +326,21 @@ footer {
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.2); }
+}
+
+/* Display utilities */
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .desktop-only {
+        display: none;
+    }
+    
+    .mobile-only {
+        display: block;
+    }
 }
 
 /* Responsive adjustments */
