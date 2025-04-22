@@ -255,6 +255,38 @@ header {
     margin-top: 1.5rem;
 }
 
+/* Project title with icon */
+.project-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+/* External link icon */
+.link-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+    stroke: var(--primary-color);
+}
+
+/* Icon animation on hover */
+.project:hover .link-icon {
+    transform: translateX(3px) translateY(-3px);
+}
+
+/* Accessible focus styles */
+.project:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
 /* Buttons */
 .btn {
     display: inline-block;
