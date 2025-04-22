@@ -1,0 +1,331 @@
+/* Base styles and variables */
+:root {
+    --bg-color: #0f0f1a;
+    --text-color: #f0f0f0;
+    --primary-color: #00ff9d;
+    --secondary-color: #ff00a0;
+    --accent-color: #00c8ff;
+    --tag-color: #ff9100;
+    --container-width: 800px;
+    --font-family: 'JetBrains Mono', monospace;
+    --border-radius: 4px;
+    --transition: all 0.2s ease;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    padding: 2rem 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Typography */
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: clamp(3rem, 10vw, 6rem);
+    margin-bottom: 0.5rem;
+    letter-spacing: -2px;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    color: var(--primary-color);
+}
+
+p {
+    margin-bottom: 1.5rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+.highlight {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+/* Header */
+header {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+/* Glitch effect */
+.glitch {
+    position: relative;
+    color: var(--primary-color);
+    text-shadow: 0.05em 0 0 var(--secondary-color), -0.05em 0 0 var(--accent-color);
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    left: 0.05em;
+    text-shadow: -0.05em 0 var(--secondary-color);
+    animation: glitch-1 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -0.05em;
+    text-shadow: 0.05em 0 var(--accent-color);
+    animation: glitch-2 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-1 {
+    0%, 80%, 100% { clip-path: inset(0 0 0 0); }
+    20% { clip-path: inset(8% 0 15% 0); }
+    40% { clip-path: inset(25% 0 58% 0); }
+    60% { clip-path: inset(42% 0 78% 0); }
+}
+
+@keyframes glitch-2 {
+    0%, 80%, 100% { clip-path: inset(0 0 0 0); }
+    20% { clip-path: inset(15% 0 12% 0); }
+    40% { clip-path: inset(62% 0 35% 0); }
+    60% { clip-path: inset(78% 0 42% 0); }
+}
+
+/* Terminal styling */
+.terminal-line {
+    font-family: var(--font-family);
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    display: inline-block;
+    min-width: 300px;
+}
+
+.prompt {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+.command {
+    color: var(--text-color);
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background-color: var(--text-color);
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+    margin-left: 0.2rem;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* About section */
+.about {
+    margin-bottom: 4rem;
+}
+
+/* Projects section */
+.projects {
+    display: grid;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.project {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border-left: 4px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-left-color: var(--secondary-color);
+}
+
+.project:nth-child(2) {
+    border-left-color: var(--secondary-color);
+}
+
+.project:nth-child(2):hover {
+    border-left-color: var(--accent-color);
+}
+
+.project:nth-child(3) {
+    border-left-color: var(--accent-color);
+}
+
+.project:nth-child(3):hover {
+    border-left-color: var(--primary-color);
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    background-color: rgba(255, 145, 0, 0.2);
+    color: var(--tag-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: var(--bg-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.social-link {
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.social-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s;
+}
+
+.social-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 2rem;
+}
+
+.heart {
+    color: var(--secondary-color);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .terminal-line {
+        width: 100%;
+        overflow-x: auto;
+    }
+    
+    .project-links {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Add a subtle grid background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(15, 15, 26, 0.97), rgba(15, 15, 26, 0.97)),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 100%, 20px 20px, 20px 20px;
+    z-index: -1;
+}
