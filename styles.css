@@ -184,12 +184,16 @@ header {
     padding: 2rem;
     border-left: 4px solid var(--primary-color);
     transition: var(--transition);
+    display: block;
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 .project:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     border-left-color: var(--secondary-color);
+    text-decoration: none;
 }
 
 .project:nth-child(2) {
