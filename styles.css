@@ -74,7 +74,7 @@ p {
 
 /* Header */
 header {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 
@@ -163,7 +163,7 @@ header {
 }
 
 .headline {
-    font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+    font-size: clamp(1.8rem, 4.5vw, 2.4rem);
     margin: 2rem 0 3rem;
     font-weight: 700;
     line-height: 1.4;
