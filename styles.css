@@ -324,24 +324,40 @@ footer {
 .social-link {
     font-size: 1.2rem;
     position: relative;
+    transition: color 0.2s ease;
+}
+
+.social-link:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.social-link::before,
+.social-link::after {
+    position: absolute;
+    opacity: 0;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.social-link::before {
+    content: '[';
+    left: -0.7em;
 }
 
 .social-link::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: var(--accent-color);
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s;
+    content: ']';
+    right: -0.7em;
+}
+
+.social-link:hover::before {
+    opacity: 1;
+    left: -0.5em;
 }
 
 .social-link:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+    opacity: 1;
+    right: -0.5em;
 }
 
 .copyright {
