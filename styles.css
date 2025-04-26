@@ -272,13 +272,15 @@ header {
     width: 1.3rem;
     height: 1.3rem;
     flex-shrink: 0;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, opacity 0.2s ease;
     stroke: var(--primary-color);
+    opacity: 0;
 }
 
 /* Icon animation on hover */
 .project:hover .link-icon {
     transform: translateX(3px) translateY(-3px);
+    opacity: 1;
 }
 
 /* Accessible focus styles */
