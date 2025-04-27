@@ -273,7 +273,7 @@ header {
     height: 1.3rem;
     flex-shrink: 0;
     transition: transform 0.2s ease, opacity 0.2s ease;
-    stroke: var(--primary-color);
+    stroke: var(--accent-color);
     opacity: 0;
 }
 
